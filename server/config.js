@@ -17,11 +17,9 @@ module.exports = {
   emailServer: {
     host: 'smtp.163.com',
     port: 465,
-    secure: true,
-    auth: {
-      user: '15000831318@163.com',
-      pass: 'LYNXJKQAXRRVVVDR'
-    }
+    user: '15000831318@163.com',
+    password: 'LYNXJKQAXRRVVVDR',
+    ssl: true
   },
   // 公用：获取客户端IP
   getClientIP: function (ctx) {

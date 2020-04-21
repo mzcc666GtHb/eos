@@ -3,7 +3,8 @@ const config = require('../config')
 const mysql = require('mysql2/promise')
 const bcrypt = require('bcryptjs')
 const common = require('../common').default
-const nodemailer = require('nodemailer')
+// const nodemailer = require('nodemailer')
+const emailjs = require('emailjs')
 
 // 公用：获取客户端IP
 function getClientIP (ctx) {
@@ -21,14 +22,14 @@ function getClientIP (ctx) {
 // 公用：发送邮件
 function sendEmail (email, title, body) {
   return new Promise(resolve => {
-    let transporter = nodemailer.createTransport(config.emailServer)
+    let transporter = emailjs.server.connect(config.emailServer)
     let mailOptions = {
       from: common.web_name + '<' + config.emailServer.auth.user + '>',
       to: email,
       subject: title,
-      html: body
+      text: body
     }
-    transporter.sendMail(mailOptions, err => {
+    transporter.send(mailOptions, err => {
       resolve(err || null)
     })
   })

@@ -14,6 +14,7 @@
     "babel-polyfill": "^6.23.0",
     "bcryptjs": "^2.4.0",
     "chart.js": "^2.7.3",
+    "emailjs": "^2.2.0",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
