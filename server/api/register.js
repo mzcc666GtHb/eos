@@ -41,6 +41,9 @@ async function register (ctx) {
           // 发送激活邮件
           let link = `${P.common.web_domain}/api/active/${data.user_name}/${data.pass_word.replace(/\//g, '')}`
           let body = `您好：${data.user_name} <br/>欢迎注册【${P.common.web_name}】网站，请点击<a href="${link}" target="_blank">${link}</a>链接进行激活您的帐号！<p><img src="http://www.scscms.com/images/whiteSCS.png" /></p>`
+          writeLog('data.user_email'+ data.user_email)
+          writeLog('P.common.web_name'+ P.common.web_name)
+          writeLog('body'+ body)
           let result = await P.sendEmail(data.user_email, P.common.web_name + '【帐号激活】', body)
           console.log('result',result);
           writeLog('result'+ result)
