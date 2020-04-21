@@ -42,6 +42,13 @@ async function register (ctx) {
               message: ''
             }
             return
+          }else{
+            await connection.end()
+            ctx.body = {
+              success: true,
+              data: { emailErr: '发送邮件失败',body:body},
+              message: ''
+            }
           }
         }
       }
