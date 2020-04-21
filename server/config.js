@@ -4,7 +4,7 @@ module.exports = {
   mysqlDB: {
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'rooT@679679',
     database: 'scscmsdb'
   },
   upPath: 'dist/upFile/', // 上传路径
@@ -15,12 +15,12 @@ module.exports = {
   },
   // 邮件服务配置
   emailServer: {
-    host: 'smtp.126.com',
+    host: 'smtp.163.com',
     port: 465,
     secure: true,
     auth: {
-      user: 'guangda1234@126.com',
-      pass: '您的邮箱授权码'
+      user: '15000831318@163.com',
+      pass: 'LYNXJKQAXRRVVVDR'
     }
   },
   // 公用：获取客户端IP
