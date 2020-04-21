@@ -5,6 +5,7 @@ module.exports = login
 // 用户登录
 async function login (ctx) {
   const data = ctx.request.body
+  console.log(data);
   let msg
   if (!P.common.name_reg.test(data.user_name)) {
     msg = P.common.name_txt

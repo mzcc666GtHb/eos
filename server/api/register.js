@@ -1,4 +1,5 @@
 const P = require('./public')
+const moment = require('moment');
 module.exports = register
 
 // 用户注册
@@ -23,8 +24,9 @@ async function register (ctx) {
       if (rows.length > 0) {
         msg = '邮箱已经被占用！'
       } else {
+        console.log(new Date().toLocaleString());
         data.pass_word = P.bcrypt.hashSync(data.pass_word, P.bcrypt.genSaltSync(10))
-        const result = await connection.execute('INSERT INTO `user` (user_name,pass_word,create_time,login_ip,user_email) VALUES (?,?,?,?,?)', [data.user_name, data.pass_word, new Date().toLocaleString(), P.getClientIP(ctx), data.user_email])
+        const result = await connection.execute('INSERT INTO `user` (user_name,pass_word,create_time,login_ip,user_email) VALUES (?,?,?,?,?)', [data.user_name, data.pass_word, moment().format('YYYY-MM-DD HH:mm:ss'), P.getClientIP(ctx), data.user_email])
         success = result[0].affectedRows === 1
         msg = success ? '' : '写入数据库失败'
         if (success) {
