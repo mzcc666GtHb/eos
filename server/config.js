@@ -4,7 +4,7 @@ module.exports = {
   mysqlDB: {
     host: 'localhost',
     user: 'root',
-    password: 'rooT@679679',
+    password: 'root',
     database: 'scscmsdb'
   },
   upPath: 'dist/upFile/', // 上传路径
