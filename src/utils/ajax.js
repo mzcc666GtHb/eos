@@ -6,7 +6,7 @@ import storage from './storage'
 
 // axios 配置
 axios.defaults.timeout = 30000// 请求超时，适当修改
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = 'http://localhost:3001'
 // http request 拦截器
 axios.interceptors.request.use(config => {
   config.headers.authorization = storage.get('userInfo').token || ''
