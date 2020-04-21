@@ -2,7 +2,7 @@
 module.exports = {
   // 数据库配置
   mysqlDB: {
-    host: 'http://106.52.185.137',
+    host: 'localhost',
     user: 'root',
     password: 'rooT@679679',
     database: 'scscmsdb'
