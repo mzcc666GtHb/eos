@@ -1,10 +1,11 @@
+const env = process.env.NODE_ENV
 // 后台配置文件
 module.exports = {
   // 数据库配置
   mysqlDB: {
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: env === 'production' ? 'rooT@679679' : 'root',
     database: 'scscmsdb'
   },
   upPath: 'dist/upFile/', // 上传路径
