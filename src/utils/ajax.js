@@ -3,10 +3,11 @@ import querystring from 'querystring'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import storage from './storage'
-
+const buildEnv = process.env.NODE_ENV
+const baseURL = buildEnv === 'development' ? '/api' :'http://106.52.185.137/:3001'
 // axios 配置
 axios.defaults.timeout = 30000// 请求超时，适当修改
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = baseURL
 // http request 拦截器
 axios.interceptors.request.use(config => {
   config.headers.authorization = storage.get('userInfo').token || ''

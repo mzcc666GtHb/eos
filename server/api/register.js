@@ -3,12 +3,12 @@ const fs = require('fs')
 const moment = require('moment');
 module.exports = register
 
-function writeLog (data) {
+function writeLog(data) {
   fs.appendFile('./log.txt', data, 'utf8', e => {
   })
 }
-// 用户注册
-async function register (ctx) {
+//用户注册
+async function register(ctx) {
   const data = ctx.request.body
   console.log(data);
   let msg
@@ -36,22 +36,22 @@ async function register (ctx) {
         success = result[0].affectedRows === 1
         msg = success ? '' : '写入数据库失败'
         console.log(success);
-        writeLog('success'+ success)
+        writeLog('success' + success)
         if (success) {
           // 发送激活邮件
           let link = `${P.common.web_domain}/api/active/${data.user_name}/${data.pass_word.replace(/\//g, '')}`
           let body = `您好：${data.user_name} <br/>欢迎注册【${P.common.web_name}】网站，请点击<a href="${link}" target="_blank">${link}</a>链接进行激活您的帐号！<p><img src="http://www.scscms.com/images/whiteSCS.png" /></p>`
-          writeLog('data.user_email'+ data.user_email)
-          writeLog('P.common.web_name'+ P.common.web_name)
-          writeLog('body'+ body)
+          writeLog('data.user_email' + data.user_email)
+          writeLog('P.common.web_name' + P.common.web_name)
+          writeLog('body' + body)
           let result = await P.sendEmail(data.user_email, P.common.web_name + '【帐号激活】', body)
-          console.log('result',result);
-          writeLog('result'+ result)
+          console.log('result', result);
+          writeLog('result' + result)
           if (result) {
             await connection.end()
             ctx.body = {
               success: true,
-              data: { emailErr: true },
+              data: {emailErr: true},
               message: ''
             }
             return

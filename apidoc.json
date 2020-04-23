@@ -1,0 +1,10 @@
+{
+  "name": "scscms-apidoc",
+  "version": "1.0.0",
+  "description": "阳光内容管理系统-接口文档",
+  "title": "scscms",
+  "url" : "http://106.52.185.137:3001/api",
+  "template":{
+    "forceLanguage":"zh_cn"
+  }
+}
